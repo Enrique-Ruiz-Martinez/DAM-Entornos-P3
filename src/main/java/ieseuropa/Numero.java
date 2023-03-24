@@ -46,12 +46,56 @@ public class Numero {
 		}
 		return factorial;
 	}
+	
+	private static boolean esNumeroAmstrong(int n) {
+		int c = 0;
+		int a = 0;
+		int temp = 0;
+		temp = n;
+		while (n > 0) {
+			a = n % 10;
+			n = n / 10;
+			c = c + (a * a * a);
+		}
+		if (temp == c) {
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	private static String esPrimo(int numero) {
+		boolean esPrimo = true;
+		for (int i = 2; i <= Math.sqrt(numero); i++) {
+			if (numero % i == 0) {
+				esPrimo = false;
+			}
+		}
+		if (esPrimo == true)
+			return numero + " es un numero primo";
+		else
+			return numero + " no es un numero primo";
+	}
+	
+	private static String calcularHMS(int numero) {
+		int horas = numero / 3600;
+		int minutos = (numero % 3600) / 60;
+		int segundos = numero % 60;
+		return numero + " segundos en horas, minutos y segundos son " + horas + " h " + minutos + " m " + segundos + " s";
+	}
 
 	public static void main(String[] args) {
 		int numero = 5;
 		System.out.println("Factorial: " + numero + " != " + calcularFactorial(numero));
 		seriePell(numero);
 		System.out.println("El numero " + numero + " " + numeroSuerte(numero));
+		if(esNumeroAmstrong(numero))
+			System.out.println(numero + " es un numero de amstrong");
+		else
+			System.out.println(numero + " no es un numero de amstrong");
+		System.out.println(esPrimo(6));
+		int numero2 = 345616;
+		System.out.println(calcularHMS(numero2));
 	}
 
 }

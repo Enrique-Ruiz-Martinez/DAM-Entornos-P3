@@ -1,6 +1,6 @@
 package main.java.ieseuropa;
 
-public class Decimales {
+public class Decimal {
 	
 	private static int redondearDecimal(double num) {
 		return (int) Math.ceil(num);
